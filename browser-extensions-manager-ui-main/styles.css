@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:wght@400;500;700&display=swap");
+
+:root {
+    --neutral-900: hsl(227, 75%, 14%);
+    --neutral-800: hsl(226, 25%, 17%);
+    --neutral-700: hsl(225, 23%, 24%);
+    --neutral-600: hsl(226, 11%, 37%);
+    --neutral-300: hsl(0, 0%, 78%);
+    --neutral-200: hsl(217, 61%, 90%);
+    --neutral-100: hsl(0, 0%, 93%);
+    --neutral-0: hsl(200, 60%, 99%);
+    --red-400: hsl(3, 86%, 64%);
+    --red-500: hsl(3, 71%, 56%);
+    --red-700: hsl(3, 77%, 44%);
+    --white: hsl(0, 0%, 100%);
+    --font: "Noto Sans", serif;
+}
+
+body {
+    min-height: 100vh;
+    font-family: var(--font);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+p {
+    font-size: 16px;
+}
+
+/* body dark */
+.body-dark {
+    background: linear-gradient(180deg, #040918 0%, #091540 100%);
+    color: var(--neutral-100);
+}
+
+/* body light */
+.body-light {
+    background: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
+}
+
+/* header */
+header {
+    width: 95%;
+    height: 3.5rem;
+    padding: 0.5rem;
+    background: var(--neutral-800);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* header logo title - dark */
+.logo-dark {
+    /* filter: contrast(0) brightness(10); */
+    fill: white;
+}
+
+.filterList {
+    width: 75%;
+    padding: 0 1rem;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.extensionCardContainer {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 0 1rem;
+}
+
+.card {
+    width: 90%;
+    height: auto;
+    background: var(--neutral-800);
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 1rem;
+    display: grid;
+    grid-template-areas:
+        "logo logo title title title title"
+        "logo logo description description description description"
+        ". . description description description description"
+        ". . description description description description"
+        "removeBtn removeBtn removeBtn . . switchBtn";
+}
+
+.card-image {
+    grid-area: logo;
+}
+.card-name {
+    grid-area: title;
+}
+.card-description {
+    grid-area: description;
+}
+.remove-btn {
+    grid-area: removeBtn;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    grid-area: switchBtn;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: var(--red-500);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--red-500);
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+
+}
