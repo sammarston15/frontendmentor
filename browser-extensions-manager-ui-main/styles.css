@@ -14,10 +14,22 @@
     --red-700: hsl(3, 77%, 44%);
     --white: hsl(0, 0%, 100%);
     --font: "Noto Sans", serif;
+    --layout-desktop: 1440px;
+    --layout-mobile: 375px;
 }
 
+
+/* 
+STYLES DEFAULT TO DESKTOP DARK LAYOUT
+MEDIA QUERIES USED FOR MOBILE LAYOUT
+ */
+
+html {
+    height: auto;
+}
 body {
     min-height: 100vh;
+    /* width: 100vw; */
     font-family: var(--font);
     display: flex;
     flex-direction: column;
@@ -41,17 +53,18 @@ p {
 
 /* header */
 header {
-    width: 95%;
+    width: 75%;
     height: 3.5rem;
-    padding: 0.5rem;
+    padding: 0 1rem;
     background: var(--neutral-800);
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 1rem;
-    border-radius: 5px;
+    border-radius: 1rem;
     font-weight: bold;
     font-size: 1.5rem;
+    padding: 1rem 1rem;
 }
 
 /* header logo title - dark */
@@ -69,22 +82,21 @@ header {
 
 }
 
-.extensionCardContainer {
-    width: 95%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
-    padding: 0 1rem;
+#extensionCardContainer {
+    width: 75%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
 }
 
 .card {
-    width: 90%;
+    /* width: 50%; */
     height: auto;
     background: var(--neutral-800);
-    margin: 1rem auto;
+    /* margin: 1rem auto; */
     padding: 1rem;
+    border: .5px solid var(--neutral-600);
     border-radius: 1rem;
     display: grid;
     grid-template-areas:
@@ -100,21 +112,25 @@ header {
 }
 .card-name {
     grid-area: title;
+    padding-left: 1rem;
 }
 .card-description {
     grid-area: description;
+    padding-left: 1rem;
 }
 .remove-btn {
     grid-area: removeBtn;
+    margin-top: 1rem;
 }
 
 /* The switch - the box around the slider */
 .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 35px;
+    height: 20px;
     grid-area: switchBtn;
+    margin-top: 1rem;
 }
 
 /* Hide default HTML checkbox */
@@ -140,10 +156,10 @@ header {
 .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
+    height: 20px;
+    width: 20px;
+    left: 0px;
+    bottom: 0px;
     background-color: white;
     -webkit-transition: 0.4s;
     transition: 0.4s;
@@ -158,9 +174,9 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
 }
 
 /* Rounded sliders */
